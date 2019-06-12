@@ -1,0 +1,88 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: zuul-gateway
+  profiles: peer1
+eureka:
+  instance:
+    prefer-ip-address: true # 注册服务的时候使用服务的ip地址
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+
+zuul:
+#  routes:
+#    users:
+#      path: /user/**
+#      serviceId: provider-user
+#      member:
+#        path: /member/**
+#        serviceId: provider-member
+#        integral:
+#          path: /integral/**
+#          serviceId: provider-integral
+#          token:
+#            path: /token/**
+#            serviceId: provider-token
+#            equity:
+#                path: /equity/**
+#                serviceId: provider-equity
+      FormBodyWrapperFilter:
+      pre:
+          disable: true
+retryable: true
+---
+server:
+  port: 9528
+
+spring:
+  application:
+    name: zuul-gateway
+  profiles: peer2
+eureka:
+  instance:
+    prefer-ip-address: true # 注册服务的时候使用服务的ip地址
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+
+zuul:
+#  routes:
+#    users:
+#      path: /user/**
+#      serviceId: provider-user
+#      member:
+#        path: /member/**
+#        serviceId: provider-member
+#        integral:
+#          path: /integral/**
+#          serviceId: provider-integral
+#          token:
+#            path: /token/**
+#            serviceId: provider-token
+#            equity:
+#                path: /equity/**
+#                serviceId: provider-equity
+      FormBodyWrapperFilter:
+      pre:
+          disable: true
+retryable: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

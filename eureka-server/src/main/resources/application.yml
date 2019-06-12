@@ -1,0 +1,44 @@
+spring:
+  profiles: peer1
+  application:
+    name: eureka-server
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: eureka-server1  # eureka实例的主机名
+  client:
+    register-with-eureka: true #不把自己注册到eureka上
+    fetch-registry: true #不从eureka上来获取服务的注册信息
+    service-url:
+      defaultZone: http://localhost:8762/eureka/,http://localhost:8763/eureka/
+---
+spring:
+  profiles: peer2
+  application:
+    name: eureka-server
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname:  eureka-server2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+       defaultZone: http://localhost:8761/eureka/,http://localhost:8763/eureka/
+---
+spring:
+  profiles: peer3
+  application:
+    name: eureka-server
+server:
+  port: 8763
+eureka:
+  instance:
+    hostname:  eureka-server3
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/

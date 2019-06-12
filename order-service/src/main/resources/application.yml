@@ -1,0 +1,11 @@
+server:
+  port: 11113
+spring:
+   application:
+    name: business-service
+   datasource:
+     url: jdbc:mysql://192.168.31.30:3306/springcloud?useUnicode=true&characterEncoding=utf8
+     username: root
+     password: 12345678
+     driver-class-name: com.mysql.jdbc.Driver
+     type: com.alibaba.druid.pool.DruidDataSource

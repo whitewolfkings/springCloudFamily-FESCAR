@@ -1,0 +1,22 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/whitewolfkings/springcloud
+          search-paths: config-repo
+  rabbitmq:
+    host: 192.168.31.54
+    port: 5672
+    username: admin
+    password: admin
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false

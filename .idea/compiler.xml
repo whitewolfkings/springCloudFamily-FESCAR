@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account-service" />
+        <module name="business-service" />
+        <module name="config-client" />
+        <module name="config-server" />
+        <module name="eureka-server" />
+        <module name="fescar-config" />
+        <module name="order-service" />
+        <module name="provider-equity" />
+        <module name="provider-internal" />
+        <module name="provider-user" />
+        <module name="storage-service" />
+        <module name="zuul-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-service" target="1.8" />
+      <module name="business-service" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="erukera-server" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="fescar-config" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="provider-equity" target="1.8" />
+      <module name="provider-internal" target="1.8" />
+      <module name="provider-user" target="1.8" />
+      <module name="springcloud" target="1.5" />
+      <module name="storage-service" target="1.8" />
+      <module name="zuul-gateway" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

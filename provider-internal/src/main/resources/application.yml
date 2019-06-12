@@ -1,0 +1,94 @@
+server:
+  port: 8017
+spring:
+   application:
+    name: provider-integral
+#数据源配置
+   datasource:
+     url: jdbc:mysql://192.168.31.30:3306/springcloud?useUnicode=true&characterEncoding=utf8
+     username: root
+     password: 12345678
+     driver-class-name: com.mysql.jdbc.Driver
+     type: com.alibaba.druid.pool.DruidDataSource
+     initialSize: 100
+     minIdle: 50
+     maxActive: 1000
+     maxWait: 60000
+     timeBetweenEvictionRunsMillis: 60000
+     minEvictableIdleTimeMillis: 30000
+     validationQuery: SELECT 1 FROM DUAL
+     testWhileIdle: true
+     testOnBorrow: false
+     #exceptionSorter: true
+     testOnReturn: false
+     poolPreparedStatements: true
+     filter: stat,wall,log4j
+     maxPoolPreparedStatementPerConnectionSize: 20
+     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+     useGlobalDataSourceStat: true
+   profiles: peer1
+#指定注册中心地址
+eureka:
+  client:
+    service-url:
+          defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+mybatis:
+  type-aliases-package: com.gssx.user.dao
+  mapper-locations: classpath:mapper/*.xml
+feign:
+  hystrix:
+    enabled: true
+client:
+  config:
+  ebook-interfaces:  provider-integral
+  connectTimeout: 5000
+  readTimeout: 5000
+management:
+  security:
+    enabled: false
+---
+server:
+  port: 8018
+spring:
+   application:
+    name: provider-integral
+#数据源配置
+   datasource:
+     url: jdbc:mysql://192.168.31.30:3306/springcloud?useUnicode=true&characterEncoding=utf8
+     username: root
+     password: 12345678
+     driver-class-name: com.mysql.jdbc.Driver
+     type: com.alibaba.druid.pool.DruidDataSource
+     initialSize: 100
+     minIdle: 50
+     maxActive: 1000
+     maxWait: 60000
+     timeBetweenEvictionRunsMillis: 60000
+     minEvictableIdleTimeMillis: 30000
+     validationQuery: SELECT 1 FROM DUAL
+     testWhileIdle: true
+     testOnBorrow: false
+     #exceptionSorter: true
+     testOnReturn: false
+     poolPreparedStatements: true
+     filter: stat,wall,log4j
+     maxPoolPreparedStatementPerConnectionSize: 20
+     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+     useGlobalDataSourceStat: true
+   profiles: peer2
+#指定注册中心地址
+eureka:
+  client:
+    service-url:
+          defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+mybatis:
+  type-aliases-package: com.gssx.user.dao
+  mapper-locations: classpath:mapper/*.xml
+feign:
+  hystrix:
+    enabled: true
+client:
+  config:
+  ebook-interfaces:  provider-integral
+  connectTimeout: 5000
+  readTimeout: 5000
